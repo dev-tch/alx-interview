@@ -1,2 +1,3 @@
-### technical test python3 : pascal triangle
+### repository for technical ALX TEST 
+
 
