@@ -5,7 +5,7 @@ import sys
 
 def print_stats(size, list_count_stat):
     "Log prasing after 10 lines or key interrupt"
-    print("Total file size:", size)
+    print("File size:", size)
     for code in sorted(list_count_stat.keys()):
         print(f"{code}: {list_count_stat[status_code]}")
 
