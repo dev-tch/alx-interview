@@ -18,15 +18,20 @@ if __name__ == "__main__":
 
     try:
         for line in sys.stdin:
-            nb_lines += 1
-            parts = line.split()
-            if len(parts) >= 7:
-                status_code = int(parts[-2])
-                file_size = int(parts[-1])
-                size += file_size
-                if status_code in list_count_stat:
-                    list_count_stat[status_code] += 1
-            if nb_lines % 10 == 0:
+            if nb_lines != 0 and nb_lines % 10 == 0:
                 print_stats(size, list_count_stat)
+            nb_lines += 1
+            try:
+                parts = line.split()
+                if len(parts) >= 7:
+                    status_code = int(parts[-2])
+                    file_size = int(parts[-1])
+                    size += file_size
+                    if status_code in list_count_stat:
+                        list_count_stat[status_code] += 1
+            except:
+                pass
+        print_stats(size, list_count_stat)
     except KeyboardInterrupt:
         print_stats(size, list_count_stat)
+        raise
