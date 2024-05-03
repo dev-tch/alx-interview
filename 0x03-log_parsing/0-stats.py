@@ -8,7 +8,7 @@ def print_stats(size, list_count_stat):
     print("File size: {:d}".format(size))
     for statusCode, times in sorted(list_count_stat.items()):
         if times:
-            print("{:s}: {:d}".format(statusCode, times))
+            print("{:d}: {:d}".format(statusCode, times))
 
 
 if __name__ == "__main__":
