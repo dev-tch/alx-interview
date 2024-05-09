@@ -2,23 +2,23 @@
 """ module to validate UTF-8 encoding"""
 
 
-def leading_ones_cpt(data):
-    """ count leading ones"""
-    for i in range(8):
-        if data >> (7 - i) == 0b11111111 >> (7 - i) & ~1:
-            return i
-    return 8
-
-
 def validUTF8(data):
     """determines if a given data set represents a valid UTF-8 encoding """
-    data = iter(data)
-    for byte in data:
-        cpt_lead_ones = leading_ones_cpt(byte)
-        if cpt_lead_ones in [1, 7, 8]:
+    lent_byte: int = 0
+    for item in data:
+        if not isinstance(item, int):
             return False
-        for _ in range(cpt_lead_ones - 1):
-            next_byte = next(data, None)
-            if next_byte is None or next_byte >> 6 != 0b10:
+        if lent_byte == 0:
+            if item >> 5 == 0b110:
+                lent_byte = 1
+            elif item >> 4 == 0b1110:
+                lent_byte = 2
+            elif item >> 3 == 0b11110:
+                lent_byte = 3
+            elif item >> 7 != 0:
                 return False
-    return True
+        else:
+            if item >> 6 != 0b10:
+                return False
+            lent_byte -= 1
+    return (lent_byte == 0)
