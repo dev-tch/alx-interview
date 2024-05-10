@@ -4,7 +4,7 @@
 
 def validUTF8(data):
     """determines if a given data set represents a valid UTF-8 encoding """
-    lent_byte: int = 0
+    lent_byte = 0
     for item in data:
         if not isinstance(item, int):
             return False
