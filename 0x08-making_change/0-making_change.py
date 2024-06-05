@@ -22,7 +22,7 @@ def search_coins(coins, idx_coin, sum_coins, nb_coins, total, stoarge):
 
 def makeChange(coins, total):
     """ find the few number of coins that it's sum equals value total"""
-    if total == 0:
+    if total <= 0:
         return 0
     stoarge = {'nb_coins': None}
     # sort descending
