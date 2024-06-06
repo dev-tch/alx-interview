@@ -15,7 +15,8 @@ def makeChange(coins, total):
     MAXNUMBER = total + 1
     U = [MAXNUMBER] * size
     U[0] = 0
-
+    # for efficiency
+    coins.sort()
     for n in range(1, size):
         for c in coins:
             if n - c >= 0:
