@@ -12,13 +12,10 @@ def makeChange(coins, total):
     # initialize array of size(total + 1) with choosed MAX value
     # init index 0 with 0 : cause with amount 0 we have 0 coins
     size = (total + 1)
-    MAXNUMBER = total + 1
-    U = [MAXNUMBER] * size
+    U = [float('inf')] * size
     U[0] = 0
-    # for efficiency
-    coins.sort()
     for n in range(1, size):
         for c in coins:
             if n - c >= 0:
                 U[n] = min(U[n], U[n - c] + 1)
-    return U[total] if U[total] != MAXNUMBER else -1
+    return U[total] if U[total] != float('inf') else -1
