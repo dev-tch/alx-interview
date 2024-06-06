@@ -17,6 +17,7 @@ def makeChange(coins, total):
     U[0] = 0
 
     for n in range(1, size):
-        U[n] = min(U[n - c] + 1 if n - c >= 0 else MAXNUMBER
-                   for c in coins)
+        for c in coins:
+            if n - c >= 0:
+                U[n] = min(U[n], U[n - c] + 1)
     return U[total] if U[total] != MAXNUMBER else -1
