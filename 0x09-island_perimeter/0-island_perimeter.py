@@ -29,9 +29,13 @@ def island_perimeter(grid):
     perimeter = 0
     island_found = False
     last_idx_row = len(grid) - 1
+    if last_idx_row > 100:
+        return 0
     for i in range(len(grid)):
         for j in range(len(grid[0])):
             last_idx_col = len(grid[i]) - 1
+            if last_idx_col > 100:
+                return 0
             if any([i == 0, j == 0,
                    i == last_idx_row,
                    j == last_idx_col]) and grid[i][j] == 1:
@@ -43,5 +47,5 @@ def island_perimeter(grid):
                     return 0
                 island_found = True
                 perimeter += depth_first_search(i, j, grid,
-                                               set_of_visited_cells)
+                                                set_of_visited_cells)
     return perimeter
