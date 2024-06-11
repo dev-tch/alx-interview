@@ -36,12 +36,14 @@ def island_perimeter(grid):
             last_idx_col = len(grid[i]) - 1
             if last_idx_col > 100:
                 return 0
+            """
             if any([i == 0, j == 0,
                    i == last_idx_row,
                    j == last_idx_col]) and grid[i][j] == 1:
                 return 0
             if last_idx_col >= 0 and grid[i][-1] == 1:
                 return 0
+            """
             if grid[i][j] == 1 and (i, j) not in set_of_visited_cells:
                 if island_found:
                     return 0
