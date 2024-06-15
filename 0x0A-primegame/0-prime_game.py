@@ -41,8 +41,12 @@ def isWinner(x, nums):
     """
     db = {'Maria': 0, 'Ben': 0}
     primes = erasto(max(nums))
+    round = 1
     for n in nums:
+        if round > x:
+            break
         play_round(n, primes, db)
+        round += 1
     if db['Maria'] > db['Ben']:
         return 'Maria'
     elif db['Ben'] > db['Maria']:
